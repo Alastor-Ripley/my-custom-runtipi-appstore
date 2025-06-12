@@ -1,7 +1,11 @@
 {
+  "id": "stash",
   "name": "Stash",
-  "version": "0.28.1",
+  "version": "0.22.0",
+  "tipi_version": 2,
+  "short_desc": "A self-hosted organizer for your adult media.",
   "description": "An organizer for your porn, written in Go. Configured with GPU support and reverse proxy.",
+  "category": "Media",
   "author": "Stash",
   "source": "https://github.com/stashapp/stash",
   "website": "https://stashapp.cc/",
