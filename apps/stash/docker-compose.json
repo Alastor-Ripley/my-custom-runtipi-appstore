@@ -24,7 +24,7 @@
           "read_only": true
         },
         {
-          "hostPath": "__ROOT__/appdata/stash/config",
+          "hostPath": "{{APP_DATA_DIR}}/config",
           "containerPath": "/root/.stash"
         },
         {
@@ -32,19 +32,19 @@
           "containerPath": "/data"
         },
         {
-          "hostPath": "__ROOT__/appdata/stash/metadata",
+          "hostPath": "{{APP_DATA_DIR}}/metadata",
           "containerPath": "/metadata"
         },
         {
-          "hostPath": "__ROOT__/appdata/stash/cache",
+          "hostPath": "{{APP_DATA_DIR}}/cache",
           "containerPath": "/cache"
         },
         {
-          "hostPath": "__ROOT__/appdata/stash/blobs",
+          "hostPath": "{{APP_DATA_DIR}}/blobs",
           "containerPath": "/blobs"
         },
         {
-          "hostPath": "__ROOT__/appdata/stash/generated",
+          "hostPath": "{{APP_DATA_DIR}}/generated",
           "containerPath": "/generated"
         }
       ],
