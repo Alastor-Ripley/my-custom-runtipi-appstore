@@ -1,10 +1,52 @@
 {
-  "services": [
-    {
-      "name": "whoami",
-      "image": "traefik/whoami:v1.11.0",
-      "isMain": true,
-      "internalPort": "80"
+  "version": "3.9",
+  "services": {
+    "stash": {
+      "image": "nerethos/stash:latest",
+      "container_name": "stash",
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "STASH_STASH": "/data/",
+        "STASH_GENERATED": "/generated/",
+        "STASH_METADATA": "/metadata/",
+        "STASH_CACHE": "/cache/",
+        "STASH_PORT": "9999",
+        "NVIDIA_VISIBLE_DEVICES": "all",
+        "NVIDIA_DRIVER_CAPABILITIES": "all"
+      },
+      "volumes": [
+        "/etc/localtime:/etc/localtime:ro",
+        "__ROOT__/appdata/stash/config:/root/.stash",
+        "/mnt/paul/Porn:/data",
+        "__ROOT__/appdata/stash/metadata:/metadata",
+        "__ROOT__/appdata/stash/cache:/cache",
+        "__ROOT__/appdata/stash/blobs:/blobs",
+        "__ROOT__/appdata/stash/generated:/generated"
+      ],
+      "labels": {
+        "traefik.enable": "true",
+        "traefik.http.routers.stash.rule": "Host(`stash.wittgenstein9kv2.local`)",
+        "traefik.http.routers.stash.entrypoints": "websecure",
+        "traefik.http.routers.stash.tls.certresolver": "myresolver",
+        "traefik.http.services.stash.loadbalancer.server.port": "9999"
+      },
+      "deploy": {
+        "resources": {
+          "reservations": {
+            "devices": [
+              {
+                "driver": "nvidia",
+                "count": "all",
+                "capabilities": [
+                  "gpu"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "restart": "unless-stopped"
     }
-  ]
+  }
 }
