@@ -17,6 +17,9 @@
         "NVIDIA_VISIBLE_DEVICES": "all",
         "NVIDIA_DRIVER_CAPABILITIES": "all"
       },
+      "ports": [
+        "9999:9999"
+      ],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
@@ -53,7 +56,8 @@
         "traefik.http.routers.stash.rule": "Host(`stash.wittgenstein9kv2.local`)",
         "traefik.http.routers.stash.entrypoints": "websecure",
         "traefik.http.routers.stash.tls.certresolver": "myresolver",
-        "traefik.http.services.stash.loadbalancer.server.port": "9999"
+        "traefik.http.services.stash.loadbalancer.server.port": "9999",
+        "traefik.http.routers.stash.priority": "100"
       },
       "deploy": {
         "resources": {
