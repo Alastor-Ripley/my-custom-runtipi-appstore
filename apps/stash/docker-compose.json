@@ -19,33 +19,33 @@
       },
       "volumes": [
         {
-          "source": "/etc/localtime",
-          "target": "/etc/localtime",
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
           "read_only": true
         },
         {
-          "source": "__ROOT__/appdata/stash/config",
-          "target": "/root/.stash"
+          "hostPath": "__ROOT__/appdata/stash/config",
+          "containerPath": "/root/.stash"
         },
         {
-          "source": "/mnt/paul/Porn",
-          "target": "/data"
+          "hostPath": "/mnt/paul/Porn",
+          "containerPath": "/data"
         },
         {
-          "source": "__ROOT__/appdata/stash/metadata",
-          "target": "/metadata"
+          "hostPath": "__ROOT__/appdata/stash/metadata",
+          "containerPath": "/metadata"
         },
         {
-          "source": "__ROOT__/appdata/stash/cache",
-          "target": "/cache"
+          "hostPath": "__ROOT__/appdata/stash/cache",
+          "containerPath": "/cache"
         },
         {
-          "source": "__ROOT__/appdata/stash/blobs",
-          "target": "/blobs"
+          "hostPath": "__ROOT__/appdata/stash/blobs",
+          "containerPath": "/blobs"
         },
         {
-          "source": "__ROOT__/appdata/stash/generated",
-          "target": "/generated"
+          "hostPath": "__ROOT__/appdata/stash/generated",
+          "containerPath": "/generated"
         }
       ],
       "labels": {
