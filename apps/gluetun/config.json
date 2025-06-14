@@ -2,14 +2,14 @@
   "name": "Gluetun",
   "id": "gluetun",
   "available": true,
-  "author": "Alastor-Ripley",
+  "author": "YourGitHubUsername",
   "description": "A VPN client in a Docker container with support for multiple VPN providers and protocols.",
   "short_desc": "VPN client to secure your other applications.",
   "version": "latest",
-  "tipi_version": "4",
+  "tipi_version": 4,
   "categories": [
-    "Network",
-    "Security"
+    "network",
+    "security"
   ],
   "exposable": false,
   "port": 8888,
@@ -21,42 +21,18 @@
   ],
   "form_fields": [
     {
-      "type": "select",
-      "label": "VPN Provider",
+      "type": "text",
+      "label": "VPN Provider (e.g., nordvpn, mullvad)",
       "name": "vpn_provider",
       "env_variable": "VPN_SERVICE_PROVIDER",
-      "required": true,
-      "options": [
-        {"value": "airvpn", "display": "AirVPN"},
-        {"value": "cyberghost", "display": "CyberGhost"},
-        {"value": "expressvpn", "display": "ExpressVPN"},
-        {"value": "fastestvpn", "display": "FastestVPN"},
-        {"value": "hidemyass", "display": "HideMyAss"},
-        {"value": "ipvanish", "display": "IPVanish"},
-        {"value": "ivpn", "display": "IVPN"},
-        {"value": "mullvad", "display": "Mullvad"},
-        {"value": "nordvpn", "display": "NordVPN"},
-        {"value": "privateinternetaccess", "display": "Private Internet Access"},
-        {"value": "privado", "display": "Privado"},
-        {"value": "protonvpn", "display": "ProtonVPN"},
-        {"value": "purevpn", "display": "PureVPN"},
-        {"value": "surfshark", "display": "Surfshark"},
-        {"value": "torguard", "display": "TorGuard"},
-        {"value": "vyprvpn", "display": "VyprVPN"},
-        {"value": "windscribe", "display": "Windscribe"},
-        {"value": "custom", "display": "Custom"}
-      ]
+      "required": true
     },
     {
-      "type": "select",
-      "label": "VPN Type",
+      "type": "text",
+      "label": "VPN Type (openvpn or wireguard)",
       "name": "vpn_type",
       "env_variable": "VPN_TYPE",
-      "required": true,
-      "options": [
-        {"value": "openvpn", "display": "OpenVPN"},
-        {"value": "wireguard", "display": "WireGuard"}
-      ]
+      "required": true
     },
     {
       "type": "text",
@@ -105,10 +81,10 @@
       "env_variable": "SERVER_COUNTRIES"
     },
     {
-        "type": "text",
-        "label": "Server Cities (comma-separated)",
-        "name": "server_cities",
-        "env_variable": "SERVER_CITIES"
+      "type": "text",
+      "label": "Server Cities (comma-separated)",
+      "name": "server_cities",
+      "env_variable": "SERVER_CITIES"
     },
     {
       "type": "text",
