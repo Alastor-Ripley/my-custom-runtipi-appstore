@@ -1,0 +1,123 @@
+{
+  "name": "Gluetun",
+  "id": "gluetun",
+  "available": true,
+  "author": "Alastor-Ripley",
+  "description": "A VPN client in a Docker container with support for multiple VPN providers and protocols.",
+  "short_desc": "VPN client to secure your other applications.",
+  "version": "latest",
+  "tipi_version": "4",
+  "categories": [
+    "Network",
+    "Security"
+  ],
+  "exposable": false,
+  "port": 8888,
+  "no_gui": true,
+  "dynamic_config": true,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "form_fields": [
+    {
+      "type": "select",
+      "label": "VPN Provider",
+      "name": "vpn_provider",
+      "env_variable": "VPN_SERVICE_PROVIDER",
+      "required": true,
+      "options": [
+        {"value": "airvpn", "display": "AirVPN"},
+        {"value": "cyberghost", "display": "CyberGhost"},
+        {"value": "expressvpn", "display": "ExpressVPN"},
+        {"value": "fastestvpn", "display": "FastestVPN"},
+        {"value": "hidemyass", "display": "HideMyAss"},
+        {"value": "ipvanish", "display": "IPVanish"},
+        {"value": "ivpn", "display": "IVPN"},
+        {"value": "mullvad", "display": "Mullvad"},
+        {"value": "nordvpn", "display": "NordVPN"},
+        {"value": "privateinternetaccess", "display": "Private Internet Access"},
+        {"value": "privado", "display": "Privado"},
+        {"value": "protonvpn", "display": "ProtonVPN"},
+        {"value": "purevpn", "display": "PureVPN"},
+        {"value": "surfshark", "display": "Surfshark"},
+        {"value": "torguard", "display": "TorGuard"},
+        {"value": "vyprvpn", "display": "VyprVPN"},
+        {"value": "windscribe", "display": "Windscribe"},
+        {"value": "custom", "display": "Custom"}
+      ]
+    },
+    {
+      "type": "select",
+      "label": "VPN Type",
+      "name": "vpn_type",
+      "env_variable": "VPN_TYPE",
+      "required": true,
+      "options": [
+        {"value": "openvpn", "display": "OpenVPN"},
+        {"value": "wireguard", "display": "WireGuard"}
+      ]
+    },
+    {
+      "type": "text",
+      "label": "OpenVPN User",
+      "name": "openvpn_user",
+      "env_variable": "OPENVPN_USER",
+      "display_if": {
+        "field": "vpn_type",
+        "value": "openvpn"
+      }
+    },
+    {
+      "type": "password",
+      "label": "OpenVPN Password",
+      "name": "openvpn_password",
+      "env_variable": "OPENVPN_PASSWORD",
+      "display_if": {
+        "field": "vpn_type",
+        "value": "openvpn"
+      }
+    },
+    {
+      "type": "text",
+      "label": "WireGuard Private Key",
+      "name": "wireguard_private_key",
+      "env_variable": "WIREGUARD_PRIVATE_KEY",
+      "display_if": {
+        "field": "vpn_type",
+        "value": "wireguard"
+      }
+    },
+    {
+      "type": "text",
+      "label": "WireGuard Addresses (comma-separated)",
+      "name": "wireguard_addresses",
+      "env_variable": "WIREGUARD_ADDRESSES",
+      "display_if": {
+        "field": "vpn_type",
+        "value": "wireguard"
+      }
+    },
+    {
+      "type": "text",
+      "label": "Server Countries (comma-separated)",
+      "name": "server_countries",
+      "env_variable": "SERVER_COUNTRIES"
+    },
+    {
+        "type": "text",
+        "label": "Server Cities (comma-separated)",
+        "name": "server_cities",
+        "env_variable": "SERVER_CITIES"
+    },
+    {
+      "type": "text",
+      "label": "Local Network Subnets (e.g., 192.168.1.0/24)",
+      "name": "local_network",
+      "env_variable": "FIREWALL_OUTBOUND_SUBNETS",
+      "tooltip": "Allow access to these subnets outside the VPN tunnel."
+    }
+  ],
+  "source": "https://github.com/qdm12/gluetun",
+  "website": "https://gluetun.net/"
+}

@@ -1,0 +1,44 @@
+{
+  "services": [
+    {
+      "name": "gluetun",
+      "image": "qmcgaw/gluetun",
+      "environment": {
+        "VPN_SERVICE_PROVIDER": "nordvpn",
+        "VPN_TYPE": "wireguard",
+        "TZ": "America/New_York",
+        "UPDATER_PERIOD": "24h"
+      },
+      "internalPort": 8888,
+      "addPorts": [
+        {
+          "containerPort": 8388,
+          "hostPort": 8388,
+          "tcp": true,
+          "udp": false
+        },
+        {
+          "containerPort": 8388,
+          "hostPort": 8388,
+          "tcp": false,
+          "udp": true
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "/home/alastor/runtipi/app-data/personal/gluetun",
+          "containerPath": "/gluetun",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "devices": [
+        "/dev/net/tun:/dev/net/tun"
+      ],
+      "capAdd": [
+        "NET_ADMIN"
+      ]
+    }
+  ]
+}
