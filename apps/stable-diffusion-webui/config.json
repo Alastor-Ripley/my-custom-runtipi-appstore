@@ -1,0 +1,21 @@
+{
+  "name": "Stable Diffusion Web UI",
+  "id": "stable-diffusion-webui",
+  "available": true,
+  "short_desc": "Powerful AI image generation with Automatic1111's Web UI.",
+  "description": "Stable Diffusion Web UI allows you to generate high-quality images from text prompts (text-to-image) and image prompts (image-to-image) using various Stable Diffusion models. This Runtipi app provides a convenient way to host and manage the Automatic1111 Web UI on your server, leveraging your GPU for fast image generation.",
+  "author": "Alastor Decidit Ripley",
+  "port": 8675,
+  "internalPort": 8080,
+  "categories": ["ai", "photography"],
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "source": "https://github.com/universonic/stable-diffusion-webui",
+  "website": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+  "exposable": true,
+  "dynamic_config": true,
+  "gpu": true,
+  "supported_architectures": ["amd64"],
+  "created_at": 1720658025000,
+  "updated_at": 1720658025000
+}
