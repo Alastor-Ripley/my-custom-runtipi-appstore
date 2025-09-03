@@ -1,1 +1,0 @@
-webui for stable diffusion
